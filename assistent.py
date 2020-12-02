@@ -5,6 +5,7 @@ from fuzzywuzzy import fuzz
 import pyttsx3
 import datetime
 import pywintypes
+
 #Насторйки
 opts = {
     "alias": ('Джарвис', 'Джарв', 'Джервис', 'Джерв'),
@@ -20,7 +21,7 @@ opts = {
 def speak(what):
     print( what )
     speak_engine.say( what )
-    speak_engine.rundWait()
+    speak_engine.runAndWait()
     speak_engine.stop()
 
 def callback(recognizer, audio):
@@ -89,7 +90,7 @@ speak_engine = pyttsx3.init()
 
 #Только если у вас установлены голоса для синтеза речи!
 voices = speak_engine.getProperty('voices')
-speak_engine.setProperty('voice', voices[4].id)
+speak_engine.setProperty('voices', voices[2].id)
 
 speak("Добрый день. повелитель")
 speak("Джарвис к вашим услугам")
